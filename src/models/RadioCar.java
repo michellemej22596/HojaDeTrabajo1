@@ -136,13 +136,22 @@ public class RadioCar implements IRadio {
 
 	@Override
 	public int upVolume() {
+		if(getVolume()<30)
+				volume = volume+1;
+			else 
+				System.out.print("El volumen está al máximo");
 		
+			
 		return 0;
 	}
 
 	@Override
 	public int downVolume() {
-		
+		if(getVolume()>0)
+			volume = volume-1;
+				else 
+					System.out.print("El volumen está al mínimo");
+			
 		return 0;
 	}
     
