@@ -120,11 +120,40 @@ public class RadioCar implements IRadio {
 
 	@Override
 	public double nextStation() {
+
+		if (frequencyType == "AM") {
+			if (actualStation == 1610.0) {
+				actualStation = 530.0;
+			}
+			else {
+				actualStation = actualStation + 10.0;
+			}
+		}else if(frequencyType == "FM") {
+			if (actualStation == 107.9) {
+				actualStation = 87.9;
+			}
+			else {
+				actualStation = actualStation + 0.2;
+			}
+		}
 		return actualStation;
 	}
 
 	@Override
 	public double prevStation() {
+		if (frequencyType == "AM") {
+			if (actualStation == 530.0) {
+				actualStation = 1610.0;
+			}else {
+				actualStation = actualStation - 10.0;
+			}
+		}else if(frequencyType == "FM") {
+			if (actualStation == 87.9) {
+				actualStation = 107.9;
+			}else {
+				actualStation = actualStation - 0.2;
+			}
+		}
 		return actualStation;
 	}
 
