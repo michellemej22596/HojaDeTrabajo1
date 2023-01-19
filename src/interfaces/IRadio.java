@@ -32,14 +32,14 @@ public interface IRadio {
 	 * @param boton (numero del 1 al 6) donde se desea guardar la estacion
 	 * @return nombre de la estacion
 	 */
-	public String saveStationFm(int button);
+	public String saveStationFm(int id);
 	
 	/***
 	 * Este metodo guarda la estaion AM
 	 * @param boton (numero del 1 al 6) donde se desea guardar la estacion
 	 * @return nombre de la estacion
 	 */
-	public String saveStationAm(int button);
+	public String saveStationAm(int id);
 	
 	/***
 	 * Este metodo permite subir el volumen hasta 30

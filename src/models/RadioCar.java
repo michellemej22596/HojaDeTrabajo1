@@ -158,15 +158,17 @@ public class RadioCar implements IRadio {
 	}
 
 	@Override
-	public String saveStationFm(int button) {
-	
-		return null;
+	public String saveStationFm(int id) {
+            favoriteStationsFM.add(id, actualStation);
+            String msg = "se ha guardado exitosamente la emisora: "+actualStation+ " En el botón: "+(id+1);
+            return msg;
 	}
 
 	@Override
-	public String saveStationAm(int button) {
-	
-		return null;
+	public String saveStationAm(int id) {
+            favoriteStationsAM.add(id, actualStation);
+            String msg = "se ha guardado exitosamente la emisora: "+actualStation+ " En el botón: "+(id+1);  
+            return msg;
 	}
 
 	@Override
