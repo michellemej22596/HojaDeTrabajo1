@@ -53,31 +53,35 @@ public class HojaDeTrabajo1 {
     
     
     public void posibleCases(){
-        switch(resp){
-            case 1:
-                System.out.println(myRadio.changeStatusRadio());
-                break;
-            case 2:
-                System.out.println(menuFrequency());
-                break;
-            case 3:
-                System.out.println(myRadio.nextStation());
-                break;
-            case 4:
-                System.out.println(myRadio.prevStation());
-                break;
-            case 5:
-                System.out.println(menuButtonsRadio());
-                break;
-            case 6:
-                System.out.println(menuSelectButton());
-                break;
-            case 7:
-                System.out.println("GRACIAS POR UTILIZAR ESTE PROGRAMA");
-                break;
-            default:
-                System.out.println("ESTA OPCIÓN ES INVALIDA");
-                        
+        if(resp!=1 && !myRadio.isStatus()){
+            System.out.println("DEBES ENCENDER EL RADIO");
+        }else{
+            switch(resp){
+                case 1:
+                    System.out.println(myRadio.changeStatusRadio());
+                    break;
+                case 2:
+                    System.out.println(menuFrequency());
+                    break;
+                case 3:
+                    System.out.println(myRadio.nextStation());
+                    break;
+                case 4:
+                    System.out.println(myRadio.prevStation());
+                    break;
+                case 5:
+                    System.out.println(menuButtonsRadio());
+                    break;
+                case 6:
+                    System.out.println(menuSelectButton());
+                    break;
+                case 7:
+                    System.out.println("GRACIAS POR UTILIZAR ESTE PROGRAMA");
+                    break;
+                default:
+                    System.out.println("ESTA OPCIÓN ES INVALIDA");
+
+            }
         }
     }
     
