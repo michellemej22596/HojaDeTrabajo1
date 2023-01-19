@@ -39,7 +39,7 @@ public class HojaDeTrabajo1 {
      * muestra en pantalla los casos que puede eleger el cliente.
      */
     public void menu(){
-        while(resp!=7){
+        while(resp!=9){
             System.out.println("================================================================");
             System.out.println("HOLA DE NUEVO, PUEDES SELECCIONAR CUALQUIERA DE ESTAS OPCIONES: ");
             System.out.println("================================================================");
@@ -49,7 +49,9 @@ public class HojaDeTrabajo1 {
             System.out.println("4. ANTERIOR EMISORA");
             System.out.println("5. GUARDAR ESTACIÓN EN FAVORITOS");
             System.out.println("6. SELECCIONAR EMISORA");
-            System.out.println("7. SALIR");
+            System.out.println("7. SUBIR VOLUMEN");
+            System.out.println("8. BAJAR VOLUMEN");
+            System.out.println("9. SALIR");
             resp = in.nextInt();
             
             posibleCases();
@@ -83,6 +85,12 @@ public class HojaDeTrabajo1 {
                     System.out.println(menuSelectButton());
                     break;
                 case 7:
+                    System.out.println(myRadio.upVolume());
+                    break;
+                case 8:
+                    System.out.println(myRadio.downVolume());
+                    break;
+                case 9:
                     System.out.println("GRACIAS POR UTILIZAR ESTE PROGRAMA");
                     break;
                 default:
