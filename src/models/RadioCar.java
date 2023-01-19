@@ -191,7 +191,7 @@ public class RadioCar implements IRadio {
                         actualStation = actualStation + 0.2;
                 }
         }
-        String msg = "Tu emisora actual es: "+actualStation;
+        String msg = "Tu emisora actual es: "+String.format("%.2f",actualStation);
         return msg;
     }
 
@@ -214,7 +214,7 @@ public class RadioCar implements IRadio {
                     actualStation = actualStation - 0.2;
             }
         }
-        String msg = "Tu emisora actual es: "+actualStation;
+        String msg = "Tu emisora actual es: "+String.format("%.2f",actualStation);
         return msg;
     }
 
