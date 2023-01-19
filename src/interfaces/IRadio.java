@@ -11,7 +11,7 @@ public interface IRadio {
 	 * @param el estado
 	 * @return mensaje de apagado o encendido
 	 */
-	public String changeStatusRadio(boolean status);
+	public String changeStatusRadio();
 	
 	/***
 	 * Este metodo cambia a la siguiente estacion.

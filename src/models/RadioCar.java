@@ -9,12 +9,27 @@ import interfaces.IRadio;
 
 public class RadioCar implements IRadio {
 	
-	private int volume;
+    private int volume;
     private double actualStation;
     private String frequencyType;
     private boolean status;
     private ArrayList<Double> favoriteStationsAM = new ArrayList();
     private ArrayList<Double> favoriteStationsFM = new ArrayList();
+
+    public RadioCar(int volume, double actualStation, String frequencyType, boolean status) {
+        this.volume = volume;
+        this.actualStation = actualStation;
+        this.frequencyType = frequencyType;
+        this.status = status;
+        initializeArraylists();
+    }
+    
+    public void initializeArraylists(){
+        for(int x=0; x<=6; x++){
+            favoriteStationsAM.add(0.00);
+            favoriteStationsFM.add(0.00);
+        }
+    }
     
     public RadioCar(int _volume) {
     	this.setVolume(_volume);
@@ -44,8 +59,25 @@ public class RadioCar implements IRadio {
 	/**
 	 * @param actualStation the actualStation to set
 	 */
-	public void setActualStation(double actualStation) {
-            this.actualStation = actualStation;
+	public String setActualStation(int index) {
+            String msg = "";
+            if(frequencyType == "AM"){
+                if(favoriteStationsAM.get(index)==0){
+                    msg = "NO TIENENS GUARDADO UNA EMISORA EN ESTE ESPACIO.";
+                }else{
+                    this.actualStation = favoriteStationsAM.get(index);
+                    msg = "TU EMISORA ACTUAL ES: "+actualStation;
+                }
+            }else{
+                if(favoriteStationsAM.get(index)==0){
+                    msg = "NO TIENENS GUARDADO UNA EMISORA EN ESTE ESPACIO.";
+                }else{
+                    this.actualStation = favoriteStationsFM.get(index);
+                    msg = "TU EMISORA ACTUAL ES: "+actualStation;
+                }
+                
+            }
+            return msg;
 	}
 
 	/**
@@ -60,6 +92,12 @@ public class RadioCar implements IRadio {
 	 */
 	public void setFrequencyType(String frequencyType) {
             this.frequencyType = frequencyType;
+            if(frequencyType=="AM"){
+                actualStation = 530;
+               
+            }else{
+                actualStation = 87.9;
+            }
 	}
 
 	/**
@@ -105,7 +143,7 @@ public class RadioCar implements IRadio {
 	}
 
 	@Override
-	public String changeStatusRadio(boolean status) {
+	public String changeStatusRadio() {
 		
             status = !status;
             String msg;
@@ -157,18 +195,26 @@ public class RadioCar implements IRadio {
             String msg = "Tu emisora actual es: "+actualStation;
             return msg;
 	}
+        
+        public String saveStation(int id){
+            if(frequencyType=="FM"){
+                return saveStationFm(id);
+            }else{
+                return saveStationAm(id);
+            }
+        }
 
 	@Override
 	public String saveStationFm(int id) {
             favoriteStationsFM.add(id, actualStation);
-            String msg = "se ha guardado exitosamente la emisora: "+actualStation+ " En el botón: "+(id+1);
+            String msg = "se ha guardado exitosamente la emisora: "+actualStation+ " En el botón: "+(id);
             return msg;
 	}
 
 	@Override
 	public String saveStationAm(int id) {
             favoriteStationsAM.add(id, actualStation);
-            String msg = "se ha guardado exitosamente la emisora: "+actualStation+ " En el botón: "+(id+1);  
+            String msg = "se ha guardado exitosamente la emisora: "+actualStation+ " En el botón: "+(id);  
             return msg;
 	}
 
