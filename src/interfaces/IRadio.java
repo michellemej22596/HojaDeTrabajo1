@@ -18,14 +18,14 @@ public interface IRadio {
 	 * @param indice actual en la lista
 	 * @return indice de la estacion
 	 */
-	public double nextStation();
+	public String nextStation();
 	
 	/***
 	 * Este metodo cambia a la estacion anterior.
 	 * @param indice actual en la lista
 	 * @return indice de la estacion
 	 */
-	public double prevStation();
+	public String prevStation();
 	
 	/***
 	 * Este metodo guarda la estaion FM
@@ -45,12 +45,12 @@ public interface IRadio {
 	 * Este metodo permite subir el volumen hasta 30
 	 * @return volumen
 	 */
-	public int upVolume();
+	public String upVolume();
 	
 	/***
 	 * Este metodo permite bajar el volumen hasta 0
 	 * @return volumen
 	 */
-	public int downVolume();
+	public String downVolume();
 	
 }

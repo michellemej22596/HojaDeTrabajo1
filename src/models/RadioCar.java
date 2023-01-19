@@ -24,137 +24,138 @@ public class RadioCar implements IRadio {
 	 * @return the volume
 	 */
 	public int getVolume() {
-		return volume;
+            return volume;
 	}
 
 	/**
 	 * @param volume the volume to set
 	 */
 	public void setVolume(int volume) {
-		this.volume = volume;
+            this.volume = volume;
 	}
 
 	/**
 	 * @return the actualStation
 	 */
 	public double getActualStation() {
-		return actualStation;
+            return actualStation;
 	}
 
 	/**
 	 * @param actualStation the actualStation to set
 	 */
 	public void setActualStation(double actualStation) {
-		this.actualStation = actualStation;
+            this.actualStation = actualStation;
 	}
 
 	/**
 	 * @return the frequencyType
 	 */
 	public String getFrequencyType() {
-		return frequencyType;
+            return frequencyType;
 	}
 
 	/**
 	 * @param frequencyType the frequencyType to set
 	 */
 	public void setFrequencyType(String frequencyType) {
-		this.frequencyType = frequencyType;
+            this.frequencyType = frequencyType;
 	}
 
 	/**
 	 * @return the status
 	 */
 	public boolean isStatus() {
-		return status;
+            return status;
 	}
 
 	/**
 	 * @param status the status to set
 	 */
 	public void setStatus(boolean status) {
-		this.status = status;
+            this.status = status;
 	}
 
 	/**
 	 * @return the favoriteStationsAM
 	 */
 	public ArrayList<Double> getFavoriteStationsAM() {
-		return favoriteStationsAM;
+            return favoriteStationsAM;
 	}
 
 	/**
 	 * @param favoriteStationsAM the favoriteStationsAM to set
 	 */
 	public void setFavoriteStationsAM(ArrayList<Double> favoriteStationsAM) {
-		this.favoriteStationsAM = favoriteStationsAM;
+            this.favoriteStationsAM = favoriteStationsAM;
 	}
 
 	/**
 	 * @return the favoriteStationsFM
 	 */
 	public ArrayList<Double> getFavoriteStationsFM() {
-		return favoriteStationsFM;
+            return favoriteStationsFM;
 	}
 
 	/**
 	 * @param favoriteStationsFM the favoriteStationsFM to set
 	 */
 	public void setFavoriteStationsFM(ArrayList<Double> favoriteStationsFM) {
-		this.favoriteStationsFM = favoriteStationsFM;
+            this.favoriteStationsFM = favoriteStationsFM;
 	}
 
 	@Override
 	public String changeStatusRadio(boolean status) {
 		
-		status = !status;
-		String msg;
-		if (status) {
-			msg = "Radio encendido";
-		}
-		else {
-			msg = "Radio apagado";
-		}
-		return msg;
+            status = !status;
+            String msg;
+            if (status) {
+                    msg = "Radio encendido";
+            }
+            else {
+                    msg = "Radio apagado";
+            }
+            return msg;
 	}
 
 	@Override
-	public double nextStation() {
-
-		if (frequencyType == "AM") {
-			if (actualStation == 1610.0) {
-				actualStation = 530.0;
-			}
-			else {
-				actualStation = actualStation + 10.0;
-			}
-		}else if(frequencyType == "FM") {
-			if (actualStation == 107.9) {
-				actualStation = 87.9;
-			}
-			else {
-				actualStation = actualStation + 0.2;
-			}
-		}
-		return actualStation;
+	public String nextStation() {
+            if (frequencyType == "AM") {
+                    if (actualStation == 1610.0) {
+                            actualStation = 530.0;
+                    }
+                    else {
+                            actualStation = actualStation + 10.0;
+                    }
+            }else if(frequencyType == "FM") {
+                    if (actualStation == 107.9) {
+                            actualStation = 87.9;
+                    }
+                    else {
+                            actualStation = actualStation + 0.2;
+                    }
+            }
+            String msg = "Tu emisora actual es: "+actualStation;
+            return msg;
 	}
 
 	@Override
-	public double prevStation() {
-		if (frequencyType == "AM") {
-			if (actualStation == 530.0) {
-				actualStation = 1610.0;
-			}else {
-				actualStation = actualStation - 10.0;
-			}
-		}else if(frequencyType == "FM") {
-			if (actualStation == 87.9) {
-				actualStation = 107.9;
-			}else {
-				actualStation = actualStation - 0.2;
-			}
-		}
-		return actualStation;
+	public String prevStation() {
+            if (frequencyType == "AM") {
+                if (actualStation == 530.0) {
+                        actualStation = 1610.0;
+                }else {
+                        actualStation = actualStation - 10.0;
+                }
+            }else if(frequencyType == "FM") {
+                if (actualStation == 87.9) {
+                        actualStation = 107.9;
+                }else {
+                        actualStation = actualStation - 0.2;
+                }
+            }
+            String msg = "Tu emisora actual es: "+actualStation;
+            return msg;
 	}
 
 	@Override
@@ -172,24 +173,25 @@ public class RadioCar implements IRadio {
 	}
 
 	@Override
-	public int upVolume() {
-		if(getVolume()<30)
-				volume = volume+1;
-			else 
-				System.out.print("El volumen está al máximo");
-		
-			
-		return 0;
+	public String upVolume() {
+            if(getVolume()<30)
+                volume = volume+1;
+            else {
+                System.out.print("El volumen está al máximo");			
+            }
+            String msg = "tu volumen actual es: "+volume;
+            return msg;
 	}
 
 	@Override
-	public int downVolume() {
-		if(getVolume()>0)
-			volume = volume-1;
-				else 
-					System.out.print("El volumen está al mínimo");
-			
-		return 0;
+	public String downVolume() {
+            if(getVolume()>0)
+                volume = volume-1;
+            else{
+                System.out.print("El volumen está al mínimo");
+            }		
+            String msg = "tu volumen actual es: "+volume;
+            return msg;
 	}
     
 }
