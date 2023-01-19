@@ -142,6 +142,10 @@ public class RadioCar implements IRadio {
             this.favoriteStationsFM = favoriteStationsFM;
 	}
 
+        /**
+         *  método para cambiar de encendido a apagado y viceversa.
+         * @return  msg
+         */
 	@Override
 	public String changeStatusRadio() {
 		
@@ -155,6 +159,12 @@ public class RadioCar implements IRadio {
             }
             return msg;
 	}
+        
+        
+        /**
+         * cambiar a la siguiente estación
+         * @return msg
+         */
 
 	@Override
 	public String nextStation() {
@@ -177,6 +187,10 @@ public class RadioCar implements IRadio {
             return msg;
 	}
 
+        /**
+         * anterior estación
+         * @return msg
+         */
 	@Override
 	public String prevStation() {
             if (frequencyType == "AM") {
@@ -196,13 +210,26 @@ public class RadioCar implements IRadio {
             return msg;
 	}
         
+        
+        /**
+         * guarda la estación en la posición elegida.
+         * @param id
+         * @return  msg
+         */
         public String saveStation(int id){
             if(frequencyType=="FM"){
                 return saveStationFm(id);
             }else{
                 return saveStationAm(id);
             }
+            
         }
+        
+        /**
+         * guardar estación en FM
+         * @param id
+         * @return msg
+         */
 
 	@Override
 	public String saveStationFm(int id) {
@@ -211,6 +238,12 @@ public class RadioCar implements IRadio {
             return msg;
 	}
 
+        
+        /**
+         * guardar esctación AM
+         * @param id
+         * @return msg
+         */
 	@Override
 	public String saveStationAm(int id) {
             favoriteStationsAM.add(id, actualStation);
@@ -218,6 +251,11 @@ public class RadioCar implements IRadio {
             return msg;
 	}
 
+        
+        /**
+         * subir volumen
+         * @return msg
+         */
 	@Override
 	public String upVolume() {
             if(getVolume()<30)
@@ -229,6 +267,10 @@ public class RadioCar implements IRadio {
             return msg;
 	}
 
+        /**
+         * bajar volumen
+         * @return msg
+         */
 	@Override
 	public String downVolume() {
             if(getVolume()>0)

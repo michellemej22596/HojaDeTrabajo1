@@ -16,14 +16,14 @@ public interface IRadio {
 	/***
 	 * Este metodo cambia a la siguiente estacion.
 	 * @param indice actual en la lista
-	 * @return indice de la estacion
+	 * @return mensaje del cambio
 	 */
 	public String nextStation();
 	
 	/***
 	 * Este metodo cambia a la estacion anterior.
 	 * @param indice actual en la lista
-	 * @return indice de la estacion
+	 * @return mensaje del cambio
 	 */
 	public String prevStation();
 	
@@ -43,13 +43,13 @@ public interface IRadio {
 	
 	/***
 	 * Este metodo permite subir el volumen hasta 30
-	 * @return volumen
+	 * @return mensaje del cambio
 	 */
 	public String upVolume();
 	
 	/***
 	 * Este metodo permite bajar el volumen hasta 0
-	 * @return volumen
+	 * @return mensaje del cambio
 	 */
 	public String downVolume();
 	

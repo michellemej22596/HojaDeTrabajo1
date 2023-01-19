@@ -27,12 +27,17 @@ public class HojaDeTrabajo1 {
         
         hoja.start();
     }
-    
+    /**
+     * método que sete valores a la clase radio y empieza elmétodo menu
+     */
     public void start(){
         myRadio = new RadioCar(0,87.9,"FM",false);
         menu();
     }
     
+    /**
+     * muestra en pantalla los casos que puede eleger el cliente.
+     */
     public void menu(){
         while(resp!=7){
             System.out.println("================================================================");
@@ -51,7 +56,9 @@ public class HojaDeTrabajo1 {
         }
     }
     
-    
+    /**
+     * casos posibles de elección
+     */
     public void posibleCases(){
         if(resp!=1 && !myRadio.isStatus()){
             System.out.println("DEBES ENCENDER EL RADIO");
@@ -85,6 +92,10 @@ public class HojaDeTrabajo1 {
         }
     }
     
+    /**
+     * menu que muestra las posibles frecuencias
+     * @return mensaje de frecuencia actual
+     */
     public String menuFrequency(){
         System.out.println("SELECCIONA EL TIPO DE FRECUENCIA QUE NECESITAS");
         System.out.println("1. AM");
@@ -100,10 +111,19 @@ public class HojaDeTrabajo1 {
         return "tu frecuencia actual es: "+myRadio.getFrequencyType();
     }
     
+    /**
+     *  validar el estado del radio
+     * @return status
+     */
     public boolean validateStatusRadio(){
         return myRadio.isStatus();
     }
     
+    
+    /**
+     * método para selección del botón
+     * @return  msg
+     */
     public String menuButtonsRadio(){
         System.out.println("SELECCIONA EL BOTÓN DEL 1 AL 6: ");
         String msg ="";
@@ -117,7 +137,10 @@ public class HojaDeTrabajo1 {
         return msg;
     }
 
-
+    /**
+     * seleccionar la estación guarddada en el botón.
+     * @return msg
+     */
     public String menuSelectButton(){
         System.out.println("SELECCIONA EL BOTÓN DEL 1 AL 6: ");
         String msg ="";
